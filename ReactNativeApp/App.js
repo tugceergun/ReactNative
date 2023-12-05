@@ -24,7 +24,7 @@ import { StyleSheet, Text, View , Button, TouchableOpacity, TouchableHighlight, 
 <TouchableWithoutFeedback  //basili tutunca herhangi bir davranisi olmaz.
 onPress={() => alert('Pressed!')}> 
 <Text>Click TouchableWithoutFeedback</Text>
-</TouchableWithoutFeedback>; 
+</TouchableWithoutFeedback>
 
     </View>
   );
