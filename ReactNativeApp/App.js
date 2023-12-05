@@ -1,22 +1,31 @@
-import { StyleSheet, Text, View } from 'react-native';
-import Header from "./src/components/Header";
-import Title from "./src/components/Title";
-import User from './src/components/User';
-import Users from './src/components/Users';
+import { StyleSheet, Text, View , Button, TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback} from 'react-native';
+
 
  function App () {
+
+  const handleClick = () => { // normal butonda ve touchableOpacity butonunda kullanmak icin fonksiyon yazdik.
+    alert("Merhaba")
+  }
   return (
     <View style={styles.container}>
-     
-  
-      <Title text="Merhaba React Native" />
-      <Title text="React Native" color="red" numberOfLines={1} isVisible= {true} />
-      <Title text="React" color="green" numberOfLines={2} />
-      <Title text="JavaScript" color="blue" numberOfLines={3} />
-      
-      <User data={{id:1, name: "Mehmet" }}/>
+     <Button title="Click Button" onPress= {handleClick}/>
+     <TouchableOpacity // android ve ios'ta butonlarin gorunumlari ayni olmasi icin Touchable butonlar kullanilir.
+      onPress={handleClick}> 
+      <Text>Click TouchableOpacity</Text>
+     </TouchableOpacity> 
 
-      <Users data= {["Ahmet", "Mehmet", "Ayse", "Fatma"]}/>
+     <TouchableHighlight  //butona basili tutunca arkaplanını degistirmek icin.
+  activeOpacity={0.6} // yazinin opacity'si (rengi) derecesini(koyuluk) ayarlar.
+  underlayColor="orange"
+  onPress={() => alert('Pressed!')}>
+  <Text>Click TouchableHighlight</Text>
+</TouchableHighlight>
+
+<TouchableWithoutFeedback  //basili tutunca herhangi bir davranisi olmaz.
+onPress={() => alert('Pressed!')}> 
+<Text>Click TouchableWithoutFeedback</Text>
+</TouchableWithoutFeedback>; 
+
     </View>
   );
 };
