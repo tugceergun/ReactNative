@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View , Button, TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback, FlatList, SafeAreaView, StatusBar, RefreshControl} from 'react-native';
+import { Image, StyleSheet, Text, View , Button, TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback, FlatList, SafeAreaView, StatusBar, RefreshControl, ScrollView} from 'react-native';
 import ListItem from './src/components/ListItem';
 import ListHeader from './src/components/ListHeader';
 import ListFooter from './src/components/ListFooter';
@@ -53,7 +53,6 @@ const DATA = [
 
 
  function App () {
-
   
 //butonlar---
 //   const handleClick = () => { // normal butonda ve touchableOpacity butonunda kullanmak icin fonksiyon yazdik.
@@ -62,10 +61,75 @@ const DATA = [
 
 
    return (
+
+    <SafeAreaView style={styles.container}> 
+      <ScrollView
+      //ScrollView tüm listeyi render eder. FlatList ekranda gorundugu kadarini render eder. FlatList daha avantajli olabilir.
+      style={styles.scrollView}>
+        <Text style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+        <Text style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+        <Text style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+        <Text style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+        <Text style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+        <Text style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+      </ScrollView>
+    </SafeAreaView>
+
     
+/* //FlatList-----
 
       <SafeAreaView style={styles.container}>
-      <FlatList
+
+
+        <FlatList
       //FlatList 3 tane property aliyor.(data,renderItem,Keyextractor.)
         data={DATA} //data veri seti
         renderItem={({item}) => <ListItem item={item} />} // her bir liste elemaninin goruntusu
@@ -74,12 +138,14 @@ const DATA = [
         ListFooterComponent={<ListFooter />} 
         refreshControl={
           <RefreshControl refreshing={true} OnRefresh={() => {}} /> //refresh control ekledik.
-        }
+        } 
 
-       // horizontal  //yatay liste yapmak icin kullanilir.
+       // horizontal  //yatay liste yapmak icin kullanilir. } 
+       
 
       />
     </SafeAreaView>
+    */
     
 
 /* 
