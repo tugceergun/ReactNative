@@ -4,6 +4,7 @@ import ListItem from './src/components/ListItem';
 import ListHeader from './src/components/ListHeader';
 import ListFooter from './src/components/ListFooter';
 
+/* //Flat List------
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -50,6 +51,8 @@ const DATA = [
   },
 
 ];
+
+*/
 
 
  function App () {
