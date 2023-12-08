@@ -62,13 +62,25 @@ const DATA = [
 //     alert("Merhaba")
 //   }
 
+//Array State-----
+const [users, setUsers] = useState([
+  {id:1, name: 'Ahmet'},
+  {id: 2, name: "Mehmet"},
+]);
+
+const handlePress = () => {
+  setUsers((prev) => [...prev, { id: Math.floor(Math.random() * 1000), name:"Ayse"},]); //id'ye 0 ile 1000 arasinda random deger atadik. "...prev" 'i sona koyarsak basa ekler.
+}
+
 //Object State----
+/*
 const[user, setUser] = useState({ id:1, name:"Mehmet"}); //useState'e obje verdik.
 
 const handlePress = () => {
   //setUser({ ...user, id: 2}); // user'in o anki halini aldik(...user). sadece id'sini degistirdik.
   setUser(prev => ({ ...prev, name: "Ahmet"})); //setUser state'in degistirilmeden onceki halini veriyor (prev). yani ("...user") yerine bunu da kullanabiliriz.
 }
+*/
 
 
 //States---
@@ -82,12 +94,30 @@ const[isVisible, setIsvisible] = useState(true);
 
    return (
 
+
+<SafeAreaView style={styles.container}>
+  <FlatList  //FlatList kullanarak ekledik.
+  data={users}
+  keyExtractor ={(item) => item.id}
+  renderItem={({ item }) => (
+    <View style={styles.item}>
+      <Text style={styles.text}>{item.name}</Text>
+    </View>
+  )}
+  />
+
+  <Button title="Add" onPress={handlePress} />
+</SafeAreaView>
+
+    /*//Object States-----
+
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>ID: {user.id}</Text>
       <Text style={styles.text}>Name: {user.name}</Text>
 
       <Button title="Click" onPress={handlePress} />
     </SafeAreaView>
+    */
 
 /* //States-----
 <SafeAreaView style={styles.container}> 
@@ -233,7 +263,7 @@ const[isVisible, setIsvisible] = useState(true);
 // <Text>Click TouchableWithoutFeedback</Text>
 // </TouchableWithoutFeedback>
 
-//     </View>
+//     </View>2
   );
 };
 
@@ -242,6 +272,11 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  item: {
+    backgroundColor: "#eee",
+    padding: 10,
+    borderBottomWidth: 1,
   },
   text: {
     fontSize: 20,
