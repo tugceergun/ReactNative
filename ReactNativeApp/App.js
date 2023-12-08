@@ -62,16 +62,34 @@ const DATA = [
 //     alert("Merhaba")
 //   }
 
+//Object State----
+const[user, setUser] = useState({ id:1, name:"Mehmet"}); //useState'e obje verdik.
+
+const handlePress = () => {
+  //setUser({ ...user, id: 2}); // user'in o anki halini aldik(...user). sadece id'sini degistirdik.
+  setUser(prev => ({ ...prev, name: "Ahmet"})); //setUser state'in degistirilmeden onceki halini veriyor (prev). yani ("...user") yerine bunu da kullanabiliriz.
+}
+
+
 //States---
 //Bir butona tikladiktan sonra bir değeri güncellemek icin, 
 //kullanici tarafindan girilmis bir input degerini saklamak icin veya bir servisten donen sonucu depolamak/kaydetmek gibi bircok farkli durumda state’i kullanalabiliriz.
-
+/*
 const [name, setName] = useState("Mehmet"); //baslangixta memhmet isim state icinde.
 const [age, setAge] =useState(29);
 const[isVisible, setIsvisible] = useState(true);
+*/
 
    return (
 
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.text}>ID: {user.id}</Text>
+      <Text style={styles.text}>Name: {user.name}</Text>
+
+      <Button title="Click" onPress={handlePress} />
+    </SafeAreaView>
+
+/* //States-----
 <SafeAreaView style={styles.container}> 
 
   <Button
@@ -89,6 +107,7 @@ const[isVisible, setIsvisible] = useState(true);
   </>
   )}
 </SafeAreaView>
+*/
 
     /*//ScrollView-----
 
@@ -224,6 +243,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  text: {
+    fontSize: 20,
+  }
 });
 
 export default App;
