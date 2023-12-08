@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Image, StyleSheet, Text, View , Button, TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback, FlatList, SafeAreaView, StatusBar, RefreshControl, ScrollView} from 'react-native';
 import ListItem from './src/components/ListItem';
 import ListHeader from './src/components/ListHeader';
@@ -62,8 +62,35 @@ const DATA = [
 //     alert("Merhaba")
 //   }
 
+//States---
+//Bir butona tikladiktan sonra bir değeri güncellemek icin, 
+//kullanici tarafindan girilmis bir input degerini saklamak icin veya bir servisten donen sonucu depolamak/kaydetmek gibi bircok farkli durumda state’i kullanalabiliriz.
+
+const [name, setName] = useState("Mehmet"); //baslangixta memhmet isim state icinde.
+const [age, setAge] =useState(29);
+const[isVisible, setIsvisible] = useState(true);
 
    return (
+
+<SafeAreaView style={styles.container}> 
+
+  <Button
+  //isVisible true ise gizle butonu cikar,basinca gizler. Degilse goster yazar.
+   title={isVisible ? "Gizle": "Goster"}
+  onPress={() => setIsvisible(!isVisible)}></Button> 
+
+  {isVisible && (  //isVisible true ise gosterir yoksa saklar.
+    <>
+  <Text>İsim: {name}</Text>
+  <Text>İsim: {name}</Text>
+  <Text>Yas: {age} </Text>
+  <Button title="İsmi Degistir" onPress={() => setName("Ahmet")} /> 
+  <Button title="Yasi Degirstir" onPress={() => setAge(30)} />
+  </>
+  )}
+</SafeAreaView>
+
+    /*//ScrollView-----
 
     <SafeAreaView style={styles.container}> 
       <ScrollView
@@ -125,7 +152,7 @@ const DATA = [
         </Text>
       </ScrollView>
     </SafeAreaView>
-
+*/
     
 /* //FlatList-----
 
@@ -194,6 +221,8 @@ const DATA = [
 const styles = StyleSheet.create({
   container: {
     flex:1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
