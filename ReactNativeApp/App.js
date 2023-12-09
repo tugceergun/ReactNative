@@ -4,6 +4,7 @@ import ListItem from './src/components/ListItem';
 import ListHeader from './src/components/ListHeader';
 import ListFooter from './src/components/ListFooter';
 import Counter from './src/components/Counter';
+import UseEffect from './src/components/UseEffect';
 
 /* //Flat List------
 const DATA = [
@@ -63,6 +64,8 @@ const DATA = [
 //     alert("Merhaba")
 //   }
 
+//UseEffect----
+const [isVisible, setIsVisible] = useState(true)
 
 /*
 //Array State-----
@@ -99,7 +102,18 @@ const[isVisible, setIsvisible] = useState(true);
    return (
 
     //useEffect------
-    <Counter />
+
+    //<Counter />
+
+    //UseEffcet-----
+    <SafeAreaView style={styles.container}>
+      {isVisible && <UseEffect />}
+
+      <Button title="Goster/Gizle" onPress={() => setIsVisible(!isVisible)}/>
+
+    </SafeAreaView>
+
+  
 
     /*//Array States-----
 
