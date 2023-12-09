@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, View , Button, TouchableOpacity, TouchableHigh
 import ListItem from './src/components/ListItem';
 import ListHeader from './src/components/ListHeader';
 import ListFooter from './src/components/ListFooter';
+import Counter from './src/components/Counter';
 
 /* //Flat List------
 const DATA = [
@@ -62,20 +63,6 @@ const DATA = [
 //     alert("Merhaba")
 //   }
 
-//useEffect -------
-//Uygulamanin ayaga kalkma asamasinda, uygulamanin bagimli oldugu yan islemleri cagirmak icin kullandigimiz bir yontem.
-const [counter, setCounter] = useState(0);
-const [amount, setAmount] = useState(1)
-
-useEffect(()=> {
-  console.log("Component mount edildi.")
-}, []); //[] baslangic arrayi component sadece mount edildigi zaman şu fonk. tetiklensin demek. (ne kadar basilirsa basilsin 1 kere yazar.) //bossa herhangi bir component icin calisir.
-
-
-useEffect(()=> {
-  console.log("Count veya amount state degisti.")
-}, [counter,amount]); //arrayin icine degistiginde haberdar olmak istedigimiz state'in degerini spesifik olarak yazabiliriz.
-
 
 /*
 //Array State-----
@@ -110,18 +97,10 @@ const[isVisible, setIsvisible] = useState(true);
 */
 
    return (
-<SafeAreaView style={styles.container}>
-    <View>
-      <Text style={styles.text}>{counter}</Text>
-      <Button title="Artir" onPress={() => setCounter(counter+amount)}/>
 
-      <Text
-      //Amount degeri atadik useState ile. 1 ve 5 degerleri var butonlara tikladikça amount kadar sayi counter'a ekliyor.
-      >Amount: {amount}</Text> 
-      <Button title="1" onPress={() => setAmount(1)}/>
-      <Button title="5" onPress={() => setAmount(5)}/>
-    </View>
-    </SafeAreaView>
+    //useEffect------
+    <Counter />
+
     /*//Array States-----
 
 <SafeAreaView style={styles.container}>
