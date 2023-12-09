@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { Image, StyleSheet, Text, View , Button, TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback, FlatList, SafeAreaView, StatusBar, RefreshControl, ScrollView} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { Image, StyleSheet, Text, View , Button, TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback, FlatList, SafeAreaView, StatusBar, RefreshControl, ScrollView,} from 'react-native';
 import ListItem from './src/components/ListItem';
 import ListHeader from './src/components/ListHeader';
 import ListFooter from './src/components/ListFooter';
@@ -62,6 +62,22 @@ const DATA = [
 //     alert("Merhaba")
 //   }
 
+//useEffect -------
+//Uygulamanin ayaga kalkma asamasinda, uygulamanin bagimli oldugu yan islemleri cagirmak icin kullandigimiz bir yontem.
+const [counter, setCounter] = useState(0);
+const [amount, setAmount] = useState(1)
+
+useEffect(()=> {
+  console.log("Component mount edildi.")
+}, []); //[] baslangic arrayi component sadece mount edildigi zaman şu fonk. tetiklensin demek. (ne kadar basilirsa basilsin 1 kere yazar.) //bossa herhangi bir component icin calisir.
+
+
+useEffect(()=> {
+  console.log("Count veya amount state degisti.")
+}, [counter,amount]); //arrayin icine degistiginde haberdar olmak istedigimiz state'in degerini spesifik olarak yazabiliriz.
+
+
+/*
 //Array State-----
 const [users, setUsers] = useState([
   {id:1, name: 'Ahmet'},
@@ -71,6 +87,7 @@ const [users, setUsers] = useState([
 const handlePress = () => {
   setUsers((prev) => [...prev, { id: Math.floor(Math.random() * 1000), name:"Ayse"},]); //id'ye 0 ile 1000 arasinda random deger atadik. "...prev" 'i sona koyarsak basa ekler.
 }
+*/
 
 //Object State----
 /*
@@ -93,7 +110,19 @@ const[isVisible, setIsvisible] = useState(true);
 */
 
    return (
+<SafeAreaView style={styles.container}>
+    <View>
+      <Text style={styles.text}>{counter}</Text>
+      <Button title="Artir" onPress={() => setCounter(counter+amount)}/>
 
+      <Text
+      //Amount degeri atadik useState ile. 1 ve 5 degerleri var butonlara tikladikça amount kadar sayi counter'a ekliyor.
+      >Amount: {amount}</Text> 
+      <Button title="1" onPress={() => setAmount(1)}/>
+      <Button title="5" onPress={() => setAmount(5)}/>
+    </View>
+    </SafeAreaView>
+    /*//Array States-----
 
 <SafeAreaView style={styles.container}>
   <FlatList  //FlatList kullanarak ekledik.
@@ -108,6 +137,8 @@ const[isVisible, setIsvisible] = useState(true);
 
   <Button title="Add" onPress={handlePress} />
 </SafeAreaView>
+
+*/
 
     /*//Object States-----
 
@@ -279,7 +310,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   text: {
-    fontSize: 20,
+    fontSize: 30,
   }
 });
 
