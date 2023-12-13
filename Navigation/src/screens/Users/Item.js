@@ -17,7 +17,7 @@ const Item = ({ item }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddimg: 10,
+    padding: 10,
     backgroundColor: "#D8D8D8",
     borderBottomWidth: 1,
   },

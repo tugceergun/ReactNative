@@ -28,7 +28,7 @@ const UsersScreen = ( {navigation}) => {
       <FlatList 
       data={data}
       keyExtractor={(item) => item.id}
-      renderItem={({item}) => <Item item={item} />}
+      renderItem={({item}) => <Item item={item} />}      
       />
       }
     </View>
