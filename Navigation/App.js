@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, ImageBackground } from 'react-native';
+import { View, Text, ImageBackground, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -19,6 +19,7 @@ function App() {
      screenOptions={{
       headerStyle: {
         backgroundColor: '#f4511',
+        alignItems: "center"
       },
       headerTintColor: '#fff',
       headerTitleStyle: {
@@ -27,8 +28,13 @@ function App() {
     }}
   
    >
-        <Stack.Screen name="Home" component={HomeScreen} options={{title: "Anasayfa", headerTitle: (props) => <HeaderLogo {...props} />}}/>
-        <Stack.Screen name="Users" component={UsersScreen} options={{title: "Kullanicilar",}}/>
+        <Stack.Screen name="Home" component={HomeScreen} 
+        options={{
+          title: "Anasayfa", headerTitle: (props) => <HeaderLogo {...props} />,}}
+          />
+        <Stack.Screen name="Users" component={UsersScreen} 
+        options={{title: "Kullanicilar",}}
+        />
         <Stack.Screen
         //UserDetail ekraninda header'da name yaziyoruz. (options kisminda)
         name="UserDetail" component={UserDetail} options={({ route }) => ({ title: route.params.name })}/> 

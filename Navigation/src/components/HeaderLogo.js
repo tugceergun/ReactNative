@@ -6,12 +6,14 @@ const HeaderLogo = () => {
   return (
    
     <Image
-      style={{ width: 50, height: 50 }}
+      style={{ width: 50, height: 50, marginLeft: "57%" }}
       source={require('../../assets/logo.png')}
     />
   
   )
 }
+
+
 
 
 export default HeaderLogo
